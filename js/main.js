@@ -78,6 +78,7 @@ async function cadastrarCliente() {
   let data = document.getElementById("data").value;
   let hora = document.getElementById("hora").value;
   let tipo = document.getElementById("tipo").value;
+  let localizacaoManual = document.getElementById("localizacaoManual").value;
 
   let geolocalizacao = null;
   if (posicaoInicial) {
@@ -85,6 +86,12 @@ async function cadastrarCliente() {
       latitude: posicaoInicial.coords.latitude,
       longitude: posicaoInicial.coords.longitude
     };
+  } else if (localizacaoManual) {
+    // Se não houver geolocalização automática, usar a localização manual (se fornecida)
+    const [latitude, longitude] = localizacaoManual.split(',').map(coord => parseFloat(coord.trim()));
+    if (!isNaN(latitude) && !isNaN(longitude)) {
+      geolocalizacao = { latitude, longitude };
+    }
   }
 
   const tx = await db.transaction('localizacao', 'readwrite');
@@ -161,6 +168,7 @@ function limparCampos() {
   document.getElementById("data").value = '';
   document.getElementById("hora").value = '';
   document.getElementById("tipo").value = '';
+  document.getElementById("localizacaoManual").value = '';
 }
 
 function listagem(text) {
