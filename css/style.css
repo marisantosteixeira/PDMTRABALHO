@@ -1,74 +1,74 @@
 body{
-    background-color: #f2f0eb;
+  background-color: #f2f0eb;
 }
 
 h1, h4 {
-    text-align: center;
-    color: hotpink;
-    font-size: 22px;
+  text-align: center;
+  color: hotpink;
+  font-size: 22px;
 }
 
 p{
-  color: orange;
-  font-size: 18px;
+color: orange;
+font-size: 18px;
 }
 
 .header{
-  width: 100%;
+width: 100%;
 height: 550px;
 
 }
 
 .center {
-    padding: 50px 60px;
-    background: white;
-    border-radius: 10px;
-    text-align: center;
-    font-weight: bold;
-    color:white
-  }
+  padding: 50px 60px;
+  background: white;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: bold;
+  color:white
+}
 
-  .center .input {
-    position: relative;
-    width: 300px;
-    height: 30px;
-    margin-bottom: 45px;
-  }
-  .center .inputt input {
-    top: 0;
-    left: 0;
-    width: 100%;
-    border: 2px solid gold;
-    outline: none;
-    background: none;
-    padding: 10px;
-    border-radius: 10px;
-    font-size: 1.2em;
-  }
-  .center .inputbox:last-child {
-    margin-bottom: 15px;
-  }
+.center .input {
+  position: relative;
+  width: 300px;
+  height: 30px;
+  margin-bottom: 45px;
+}
+.center .inputt input {
+  top: 0;
+  left: 0;
+  width: 100%;
+  border: 2px solid gold;
+  outline: none;
+  background: none;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 1.2em;
+}
+.center .inputbox:last-child {
+  margin-bottom: 15px;
+}
 
 .titulo{
-   font-size: 20px;
+ font-size: 20px;
 }
 
 .button {
-  align-items: center;
-  text-align: center;
-  background-color: white;
-  border: 2px solid pink;
-  color: rgb(214, 79, 102);
-  cursor: pointer;
-  display: inline-flex;
-  font-size: 16px;
-  font-weight: 600;
-  height: 48px;
-  text-decoration: none;
+align-items: center;
+text-align: center;
+background-color: white;
+border: 2px solid pink;
+color: rgb(214, 79, 102);
+cursor: pointer;
+display: inline-flex;
+font-size: 16px;
+font-weight: 600;
+height: 48px;
+text-decoration: none;
 }
 .button:hover {
-  border-color: hotpink;
-  color: rgb(216, 17, 80) ;
-  
+border-color: hotpink;
+color: rgb(216, 17, 80) ;
+
 }
 
