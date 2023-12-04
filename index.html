@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="shortcut icon" href="image/icon.png" type="image/png">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="apple-touch-icon" href="image/pwa-iicon-256.png">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="white" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="module" src="js/db.js"></script>
+    <script type="module" src="js/main.js"></script>
+    <title>Salão dos yags</title>
+  </head>
+  <body class="fullscreen">
+
+    <div class="header">
+      <img src="/image/header.png" class="header">
+    </div>
+
+    <div class="container">
+        <h1>Salão de tranças</h1>
+          <div class="center">
+
+            <div class="inputt">
+              <p>Reserve um horario com a gente: </p>
+            <h4 class="titulo">Nome do cliente</h4>
+            <input type="text" id="nome" placeholder="Digite seu nome">
+          </div>
+
+          <div class="inputt">
+          <h4 class="titulo">Email do cliente</h4>
+          <input type="email" id="email" pattern=".+@example\.com" size="30" required placeholder="Digite seu e-mail"/>
+        </div>
+    
+            <div class="inputt">
+            <h4 class="nomess">Escolha uma data</h4>
+<input type="date" id="data" name="trip-start" value="2023-12-04" min="2023-01-01" max="2050-12-31" />
+    </div>
+
+
+          <div class="inputt">
+            <h4 class="nomess">Escolha um Horario</h4>
+<input type="time" id="hora" name="appt" min="07:00" max="18:00" required />
+          </div>
+          <div class="inputt">
+            <h4 class="nomess">Escolha um tipo de trança</h4>
+         
+      <select name="tipo" id="tipo">
+        <option>Trança tradicional</option>
+        <option>Trança nagô</option>
+        <option >Trança boxeadora</option>
+        <option>Trança escama de peixe</option>
+        <option value="trança holandesa">Trança holandesa</option>
+        <option value="trança no coque">Trança no coque</option>
+        <option value="trança no rabo de cavalo">Trança no rabo de cavalo</option>
+        <option value="trança boho">Trança boho</option>
+        <option value="trança tiara">Trança tiara</option>
+        <option value="trança embutida">Trança embutida</option>
+        <option value="trança lateral">Trança lateral</option>
+        <option value="trança sidecut">Trança sidecut</option>
+        <option value="trança fina">Trança fina</option>
+      
+      </select>
+      
+      </div>
+          </div>
+          <div>
+        
+          </div>
+              <header>
+                <h1>Nossa localização: </h1>
+              </header>
+              <div>
+                <p>
+                  Latitude: <span id="latitude">0.0</span>
+                </p>
+                <p>
+                  Longitude: <span id="longitude">0.0</span>
+                </p>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d951269.9282271244!2d-54.63256900671233!3d-21.35451196586637!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x948e7cccebf06e8b%3A0x4280310e2bc875bd!2sUniversidade%20Federal%20do%20Mato%20Grosso%20do%20Sul%2C%20C%C3%A2mpus%20de%20Nova%20Andradina!5e0!3m2!1spt-BR!2sbr!4v1701696665342!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              </div><br/>
+              <div>
+                <button class="button" id="localizacaoo">Capturar Localização</button>
+              </div>
+            <footer class="rodape"><br/>
+            </footer> 
+            <button class="button" id="btnCadastrar">Cadastrar Cliente</button><br/>
+            <button class="button" id="btnListar">Listar Clientes cadastrados</button><br/>
+            <button class="button" id="btnRemover">Deletar Cliente</button><br/>
+         </div>
+        </div>
+        <div id="resultados"></div>
+    </div>
+</body>
+
+
+</html>
+
