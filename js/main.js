@@ -70,6 +70,7 @@ window.addEventListener('DOMContentLoaded', async (event) => {
   document.getElementById('btnCadastrar').addEventListener('click', cadastrarCliente);
   document.getElementById('btnListar').addEventListener('click', buscarTodosOsClientes);
   document.getElementById('btnRemover').addEventListener('click', removerClientes);
+
 });
 
 async function cadastrarCliente() {
@@ -78,7 +79,8 @@ async function cadastrarCliente() {
   let data = document.getElementById("data").value;
   let hora = document.getElementById("hora").value;
   let tipo = document.getElementById("tipo").value;
-  let localizacaoManual = document.getElementById("localizacaoManual").value;
+  let longitude = document.getElementById("longitude").value;
+  let latitude = document.getElementById("latitude").value;
 
   let geolocalizacao = null;
   if (posicaoInicial) {
@@ -86,13 +88,7 @@ async function cadastrarCliente() {
       latitude: posicaoInicial.coords.latitude,
       longitude: posicaoInicial.coords.longitude
     };
-  } else if (localizacaoManual) {
-    // Se não houver geolocalização automática, usar a localização manual (se fornecida)
-    const [latitude, longitude] = localizacaoManual.split(',').map(coord => parseFloat(coord.trim()));
-    if (!isNaN(latitude) && !isNaN(longitude)) {
-      geolocalizacao = { latitude, longitude };
-    }
-  }
+  } 
 
   const tx = await db.transaction('localizacao', 'readwrite');
   const store = tx.objectStore('localizacao');
@@ -104,7 +100,8 @@ async function cadastrarCliente() {
       data: data,
       hora: hora,
       tipo: tipo,
-      geolocalizacao: geolocalizacao
+      longitude: longitude,
+      latitude: latitude
     });
     limparCampos();
     console.log('Cliente cadastrado com sucesso!');
@@ -134,6 +131,7 @@ async function buscarTodosOsClientes() {
               <p>${localizacao.hora}</p>
               <p>Modelo: ${localizacao.tipo}</p>
               <p>Geolocalização: ${localizacao.geolocalizacao ? `Lat: ${localizacao.geolocalizacao.latitude}, Long: ${localizacao.geolocalizacao.longitude}` : 'N/A'}</p>
+              <iframe src="https://maps.google.com/maps?width=520&amp;height=400&amp;hl=en&amp;q=${localizacao.latitude},${localizacao.longitude}&amp;t=&amp;z=12&amp;ie=UTF8&amp;iwloc=B&amp;output=embed" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
               </div>`;
     });
     listagem(divLista.join(' '));
@@ -168,7 +166,6 @@ function limparCampos() {
   document.getElementById("data").value = '';
   document.getElementById("hora").value = '';
   document.getElementById("tipo").value = '';
-  document.getElementById("localizacaoManual").value = '';
 }
 
 function listagem(text) {
